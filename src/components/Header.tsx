@@ -115,7 +115,8 @@ export default function Header() {
         <div className="hidden lg:block">
           <a
             href="#cta"
-            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full font-medium text-sm bg-white text-[#011f23] hover:bg-neutral-100 transition-all duration-300 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full font-medium text-sm bg-white hover:bg-neutral-100 transition-all duration-300 hover:-translate-y-0.5"
+            style={{ color: "#011f23" }}
           >
             Get Appointment
             <span className="w-7 h-7 rounded-full bg-[#24a3b1] flex items-center justify-center shrink-0">
@@ -171,7 +172,8 @@ export default function Header() {
           <div className="px-4 pt-4">
             <a
               href="#cta"
-              className="inline-flex items-center justify-center gap-2.5 w-full px-5 py-2.5 rounded-full font-medium text-sm bg-white text-[#011f23] hover:bg-neutral-100 transition-all duration-300"
+              className="inline-flex items-center justify-center gap-2.5 w-full px-5 py-2.5 rounded-full font-medium text-sm bg-white hover:bg-neutral-100 transition-all duration-300"
+              style={{ color: "#011f23" }}
             >
               Get Appointment
               <span className="w-7 h-7 rounded-full bg-[#24a3b1] flex items-center justify-center shrink-0">

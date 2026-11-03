@@ -22,12 +22,12 @@ function ArrowIcon() {
   );
 }
 
-const variants: Record<string, string> = {
-  dark: "bg-[#011f23] text-white hover:bg-[#022f34]",
-  light: "bg-white text-[#011f23] hover:bg-neutral-100",
-  accent: "bg-[#24a3b1] text-white hover:bg-[#1c91a1]",
-  outline: "border border-[#d0d5d5] text-[#011f23] bg-white hover:border-[#24a3b1]",
-  ghost: "border border-white/20 text-white hover:border-white/40",
+const variants: Record<string, { className: string; color: string }> = {
+  dark: { className: "bg-[#011f23] hover:bg-[#022f34]", color: "#ffffff" },
+  light: { className: "bg-white hover:bg-neutral-100", color: "#011f23" },
+  accent: { className: "bg-[#24a3b1] hover:bg-[#1c91a1]", color: "#ffffff" },
+  outline: { className: "border border-[#d0d5d5] bg-white hover:border-[#24a3b1]", color: "#011f23" },
+  ghost: { className: "border border-white/20 hover:border-white/40", color: "#ffffff" },
 };
 
 export default function ArrowButton({
@@ -36,10 +36,12 @@ export default function ArrowButton({
   href = "#",
   className = "",
 }: ArrowButtonProps) {
+  const v = variants[variant];
   return (
     <a
       href={href}
-      className={`inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-medium text-base transition-all duration-300 hover:-translate-y-0.5 ${variants[variant]} ${className}`}
+      className={`inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-medium text-base transition-all duration-300 hover:-translate-y-0.5 ${v.className} ${className}`}
+      style={{ color: v.color }}
     >
       {children}
       <ArrowIcon />
