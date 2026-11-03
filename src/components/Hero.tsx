@@ -111,7 +111,7 @@ export default function Hero() {
       <div className="relative z-[2] max-w-[1160px] mx-auto w-full px-5 pb-20 max-lg:pb-12">
         <h1 ref={titleRef} className="text-white max-w-[700px] mb-5">
           {titleWords.map((word, i) => (
-            <span key={i} className="inline-block overflow-hidden align-top pb-1">
+            <span key={i} className="inline-block overflow-hidden align-top pb-1 mr-[0.3em]">
               <span
                 className={`word-inner inline-block ${
                   word === "Every" || word === "Generation" ? "text-accent" : ""
@@ -119,7 +119,6 @@ export default function Hero() {
               >
                 {word}
               </span>
-              {i < titleWords.length - 1 && " "}
             </span>
           ))}
         </h1>
