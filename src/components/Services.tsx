@@ -44,6 +44,7 @@ const services = [
       "Orthodontic treatments correct misaligned teeth and bite issues using braces or aligners, improving both appearance and long-term oral health.",
     image: "/images/69dde7bcf2f03350abca0ee8_service-thumbnail-image-4.jpg",
     tags: ["Braces", "Clear Aligners", "Teeth Alignment", "Bite Correction"],
+    bg: "#f7efff",
   },
 ];
 
@@ -64,7 +65,7 @@ function CheckIcon() {
 
 function ServiceTagPill({ label }: { label: string }) {
   return (
-    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#011f23] text-white text-xs font-medium whitespace-nowrap">
+    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-[#011f23] text-xs font-medium whitespace-nowrap">
       <CheckIcon />
       {label}
     </span>
@@ -234,7 +235,7 @@ export default function Services() {
             style={{ width: "calc(100vw - 40px)", maxWidth: "1120px" }}
           >
             <div className="w-[30%] shrink-0 max-md:hidden">
-              <TextCard service={service} />
+              <TextCard service={service} bgColor={service.bg} />
             </div>
             <div className="w-[40%] shrink-0 max-md:w-full">
               <ImageCard service={service} />
@@ -242,6 +243,7 @@ export default function Services() {
             <div className="w-[30%] shrink-0 max-md:hidden">
               <TextCard
                 service={services[(i + 1) % services.length]}
+                bgColor={services[(i + 1) % services.length].bg}
                 className="opacity-60"
               />
             </div>

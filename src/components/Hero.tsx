@@ -50,7 +50,6 @@ const infoCards = [
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
 
   useGSAP(
     () => {
