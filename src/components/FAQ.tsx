@@ -12,27 +12,23 @@ gsap.registerPlugin(ScrollTrigger);
 const faqs = [
   {
     q: "How often should I visit the dentist?",
-    a: "We recommend visiting the dentist every 6 months for a routine check-up and professional cleaning. However, if you have specific dental concerns, more frequent visits may be advised.",
+    a: "We recommend a routine dental checkup every six months to maintain optimal oral health and catch any issues early.",
   },
   {
-    q: "What should I do in a dental emergency?",
-    a: "Contact us immediately. We offer 24/7 emergency support. In the meantime, rinse your mouth gently, apply a cold compress to reduce swelling, and avoid aspirin near the affected area.",
+    q: "Do you offer emergency dental services?",
+    a: "Yes, we provide emergency dental care for urgent issues like pain, injury, or infections with prompt attention.",
   },
   {
-    q: "Are dental X-rays safe?",
-    a: "Yes, dental X-rays use very low levels of radiation and are considered safe. We use digital X-rays, which reduce radiation exposure by up to 80% compared to traditional X-rays.",
+    q: "Are your treatments painful?",
+    a: "Most treatments are comfortable with modern techniques and anesthesia, ensuring minimal pain and a stress-free experience.",
   },
   {
-    q: "How can I whiten my teeth safely?",
-    a: "Professional whitening is the safest and most effective option. We offer both in-office treatments and take-home kits. Avoid over-the-counter products without consulting us first.",
+    q: "What dental services do you provide?",
+    a: "We offer preventive, cosmetic, restorative, and specialized dental services tailored to maintain and improve your health.",
   },
   {
-    q: "Do you accept dental insurance?",
-    a: "Yes, we accept most major dental insurance plans. Our front desk team can help verify your coverage and explain any out-of-pocket costs before your appointment.",
-  },
-  {
-    q: "What age should children start seeing a dentist?",
-    a: "Children should have their first dental visit by age 1 or within 6 months after their first tooth appears. Early visits help establish good oral health habits.",
+    q: "Do you accept insurance?",
+    a: "Yes, we accept most major dental insurance plans. Our team can help verify your coverage and explain costs before treatment.",
   },
 ];
 
@@ -70,58 +66,95 @@ export default function FAQ() {
   );
 
   return (
-    <section ref={sectionRef} id="faq" className="py-[120px] bg-bg">
+    <section ref={sectionRef} id="faq" className="py-[120px] bg-[#fef5ec]">
       <div className="container">
         <div className="grid grid-cols-[1fr_1.2fr] gap-12 max-lg:grid-cols-1">
+          {/* Left column */}
           <div className="faq-left">
             <div className="mb-5">
               <Tag>FAQ</Tag>
             </div>
             <h2 className="mb-5">
-              Frequently Asked{" "}
-              <span className="bg-gradient-to-r from-primary-400 to-accent bg-clip-text text-transparent">
-                Questions
-              </span>
+              <span className="text-[#24a3b1]">Questions</span> We Get
+              <br />
+              Often
             </h2>
-            <p className="text-gray-500 leading-[155%] mb-8">
-              Find answers to common questions about our dental services, treatments, and
-              what to expect during your visit.
+            <p className="text-[#587d81] leading-[155%] mb-8 max-w-[400px]">
+              Answers to Your Most Common Questions About Dental Care and Our
+              Services
             </p>
-            <ArrowButton variant="dark" href="#cta">
-              Book Appointment
-            </ArrowButton>
+
+            {/* Still have a question? card */}
+            <div className="bg-white rounded-2xl p-6 max-w-[400px]">
+              {/* Phone icon */}
+              <div className="w-10 h-10 rounded-full bg-[#011f23] flex items-center justify-center mb-4">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-4 h-4 stroke-white fill-none"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </div>
+              <h4 className="text-[#011f23] font-semibold text-lg mb-1">
+                Still have a question?
+              </h4>
+              <p className="text-[#587d81] text-sm mb-4">
+                Our team is ready to assist you with anything you need.
+              </p>
+              <ArrowButton variant="dark" href="#">
+                Make A Call
+              </ArrowButton>
+            </div>
           </div>
 
-          <div className="faq-right flex flex-col gap-3">
+          {/* Right column - FAQ accordion */}
+          <div className="faq-right flex flex-col">
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className={`rounded-xl border transition-colors duration-300 ${
-                  openIndex === i ? "border-accent/30 bg-accent/5" : "border-border bg-surface"
-                }`}
+                className="border-b border-[#d4d4d4] last:border-b-0"
               >
                 <button
-                  className="w-full flex items-center justify-between p-5 text-left gap-4"
+                  className="w-full flex items-center justify-between py-5 text-left gap-4"
                   onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
                 >
-                  <span className="font-medium text-fg">{faq.q}</span>
-                  <svg
-                    viewBox="0 0 24 24"
-                    className={`w-5 h-5 stroke-fg/50 fill-none shrink-0 transition-transform duration-300 ${
-                      openIndex === i ? "rotate-180" : ""
-                    }`}
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                  >
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
+                  <span className="font-medium text-[#011f23] text-lg">
+                    {faq.q}
+                  </span>
+                  <span className="w-6 h-6 flex items-center justify-center shrink-0">
+                    {openIndex === i ? (
+                      <svg
+                        viewBox="0 0 24 24"
+                        className="w-5 h-5 stroke-[#011f23] fill-none"
+                        strokeWidth={2}
+                        strokeLinecap="round"
+                      >
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                      </svg>
+                    ) : (
+                      <svg
+                        viewBox="0 0 24 24"
+                        className="w-5 h-5 stroke-[#011f23] fill-none"
+                        strokeWidth={2}
+                        strokeLinecap="round"
+                      >
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                      </svg>
+                    )}
+                  </span>
                 </button>
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
-                    openIndex === i ? "max-h-40 pb-5 px-5" : "max-h-0"
+                    openIndex === i ? "max-h-40 pb-5" : "max-h-0"
                   }`}
                 >
-                  <p className="text-gray-500 text-sm leading-[155%]">{faq.a}</p>
+                  <p className="text-[#587d81] text-base leading-[160%]">
+                    {faq.a}
+                  </p>
                 </div>
               </div>
             ))}

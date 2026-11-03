@@ -9,13 +9,33 @@ const navLinks = [
   { label: "About Us", href: "#story" },
   { label: "Services", href: "#services" },
   { label: "Blog", href: "#blog" },
-  { label: "Pages", href: "#faq" },
+  {
+    label: "Pages",
+    href: "#",
+    dropdown: [
+      { label: "Home", href: "#" },
+      { label: "About", href: "#story" },
+      { label: "Services", href: "#services" },
+      { label: "Services Details", href: "#services" },
+      { label: "Doctor Details", href: "#team" },
+      { label: "Contact Us", href: "#cta" },
+      { label: "Blogs", href: "#blog" },
+      { label: "Blog Details", href: "#blog" },
+      { label: "Privacy Policy", href: "#" },
+      { label: "Cookies", href: "#" },
+      { label: "404", href: "#" },
+      { label: "Terms & Conditions", href: "#" },
+      { label: "Styleguide", href: "#" },
+      { label: "Instruction", href: "#" },
+    ],
+  },
 ];
 
 export default function Header() {
   const headerRef = useRef<HTMLElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
@@ -47,15 +67,49 @@ export default function Header() {
         </a>
 
         <nav className="hidden lg:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="px-4 py-2 text-sm text-white/70 rounded-full transition-colors hover:text-white"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.dropdown ? (
+              <div
+                key={link.label}
+                className="relative"
+                onMouseEnter={() => setDropdownOpen(true)}
+                onMouseLeave={() => setDropdownOpen(false)}
+              >
+                <button className="px-4 py-2 text-sm text-white/70 rounded-full transition-colors hover:text-white inline-flex items-center gap-1">
+                  {link.label}
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="w-3.5 h-3.5 stroke-current fill-none"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+                {dropdownOpen && (
+                  <div className="absolute top-full right-0 mt-1 w-52 bg-primary-900 border border-white/10 rounded-xl py-2 shadow-xl">
+                    {link.dropdown.map((item) => (
+                      <a
+                        key={item.label}
+                        href={item.href}
+                        className="block px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 transition-colors"
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                className="px-4 py-2 text-sm text-white/70 rounded-full transition-colors hover:text-white"
+              >
+                {link.label}
+              </a>
+            )
+          )}
         </nav>
 
         <div className="hidden lg:block">
@@ -97,9 +151,9 @@ export default function Header() {
             {navLinks.map((link) => (
               <a
                 key={link.label}
-                href={link.href}
+                href={link.dropdown ? "#" : link.href}
                 className="px-4 py-3 text-sm text-white/70 hover:text-white transition-colors"
-                onClick={() => setMobileOpen(false)}
+                onClick={() => !link.dropdown && setMobileOpen(false)}
               >
                 {link.label}
               </a>

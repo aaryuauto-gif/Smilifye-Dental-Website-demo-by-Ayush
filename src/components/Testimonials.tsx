@@ -5,34 +5,30 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import Tag from "./Tag";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
   {
     quote:
-      "The team at Smilifye made me feel so comfortable during my entire treatment. I used to dread dental visits, but now I actually look forward to them. My smile has never looked better!",
-    name: "Sarah Johnson",
-    role: "Regular Patient",
+      "I've always been nervous about visiting the dentist, but Smilifye changed everything. The staff is warm, and the care is exceptional. I finally enjoy smiling again.",
+    name: "Kristin Watson",
+    role: "Business Owner",
     avatar: "/images/69f2a59c19ae6fdd3081c087_testimonial-author-1.webp",
-    rating: 5,
   },
   {
     quote:
-      "From the moment I walked in, I knew this was different. The staff is incredibly kind, the technology is top-notch, and the results speak for themselves. Highly recommended!",
-    name: "Michael Chen",
-    role: "Cosmetic Patient",
+      "The team made my dental visit incredibly comfortable. Professional care, clear explanations, and excellent results. I finally feel confident about my smile again.",
+    name: "Michael Carter",
+    role: "Business Consultant",
     avatar: "/images/69f5c8fa1f4ebe5de80710ed_testimonial-author-2.webp",
-    rating: 5,
   },
   {
     quote:
-      "I brought my whole family here and every single one of us has had an amazing experience. The kids love coming here, which says a lot about how welcoming and gentle the team is.",
-    name: "Emily Rodriguez",
-    role: "Family Patient",
+      "From consultation to treatment, everything was smooth and stress-free. The dentist was gentle, and the staff was supportive. Highly recommend their dental services.",
+    name: "Daniel Hughes",
+    role: "Software Engineer",
     avatar: "/images/69f5c8fb3aea82102c7a57e3_testimonial-author-3.webp",
-    rating: 5,
   },
 ];
 
@@ -40,8 +36,14 @@ export default function Testimonials() {
   const sectionRef = useRef<HTMLElement>(null);
   const [active, setActive] = useState(0);
 
-  const next = useCallback(() => setActive((p) => (p + 1) % testimonials.length), []);
-  const prev = useCallback(() => setActive((p) => (p - 1 + testimonials.length) % testimonials.length), []);
+  const next = useCallback(
+    () => setActive((p) => (p + 1) % testimonials.length),
+    []
+  );
+  const prev = useCallback(
+    () => setActive((p) => (p - 1 + testimonials.length) % testimonials.length),
+    []
+  );
 
   useEffect(() => {
     const id = setInterval(next, 5000);
@@ -53,12 +55,12 @@ export default function Testimonials() {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
       gsap.fromTo(
-        ".testimonial-content",
-        { y: 50, opacity: 0 },
+        ".testimonial-card",
+        { y: 60, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.8,
+          duration: 0.9,
           scrollTrigger: { trigger: sectionRef.current, start: "top 80%" },
         }
       );
@@ -69,10 +71,8 @@ export default function Testimonials() {
   const t = testimonials[active];
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative py-[120px] overflow-hidden"
-    >
+    <section ref={sectionRef} className="relative py-[140px] overflow-hidden">
+      {/* Full-width dental office background */}
       <div className="absolute inset-0">
         <Image
           src="/images/69ddd539a343355970d2be89_testimonial-background.webp"
@@ -81,82 +81,92 @@ export default function Testimonials() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-primary-900/90" />
+        <div className="absolute inset-0 bg-[#011f23]/60" />
       </div>
 
       <div className="container relative z-10">
-        <div className="testimonial-content max-w-[800px] mx-auto text-center text-white">
-          <div className="mb-5">
-            <Tag>Testimonials</Tag>
-          </div>
-          <h2 className="text-white mb-10">
-            What Our Patients{" "}
-            <span className="bg-gradient-to-r from-primary-400 to-accent bg-clip-text text-transparent">
-              Say About Us
+        <div className="testimonial-card max-w-[680px] mx-auto flex flex-col items-center">
+          {/* Teal gradient header card */}
+          <div className="w-full rounded-t-[20px] bg-gradient-to-br from-[#022f34] to-[#24a3b1] pt-12 pb-16 px-10 text-center">
+            <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/30 text-sm font-medium text-white mb-6">
+              <span className="text-[10px] text-white/70">✳</span>
+              Testimonials
             </span>
-          </h2>
+            <h2 className="text-[48px] leading-[110%] font-semibold tracking-[-2px] text-white max-md:text-[36px]">
+              Voices of
+              <br />
+              <span className="text-[#7ecdd6]">Trust and Care</span>
+            </h2>
+          </div>
 
-          <div className="relative min-h-[200px]">
-            <div className="flex gap-1 justify-center mb-6">
-              {[...Array(t.rating)].map((_, j) => (
-                <svg key={j} viewBox="0 0 24 24" className="w-5 h-5 fill-accent stroke-none">
+          {/* White testimonial card overlapping the gradient */}
+          <div className="w-[90%] -mt-8 bg-white rounded-2xl shadow-xl px-10 py-10 text-center relative z-10 max-md:px-6 max-md:py-8">
+            {/* Author photo */}
+            <div className="w-[100px] h-[100px] rounded-xl overflow-hidden mx-auto mb-5 max-md:w-[80px] max-md:h-[80px]">
+              <Image
+                src={t.avatar}
+                alt={t.name}
+                width={100}
+                height={100}
+                className="object-cover w-full h-full"
+              />
+            </div>
+
+            <h4 className="text-[#011f23] font-semibold text-lg mb-1">
+              {t.name}
+            </h4>
+            <p className="text-[#587d81] text-sm mb-5">{t.role}</p>
+
+            {/* Stars */}
+            <div className="flex gap-1 justify-center mb-5">
+              {[...Array(5)].map((_, j) => (
+                <svg
+                  key={j}
+                  viewBox="0 0 24 24"
+                  className="w-5 h-5 fill-[#f5a623] stroke-none"
+                >
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                 </svg>
               ))}
             </div>
 
-            <blockquote className="text-lg leading-[170%] text-white/80 mb-8 transition-opacity duration-500">
+            <blockquote className="text-[#587d81] text-base leading-[170%] max-w-[500px] mx-auto">
               &ldquo;{t.quote}&rdquo;
             </blockquote>
 
-            <div className="flex items-center justify-center gap-3">
-              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-accent">
-                <Image
-                  src={t.avatar}
-                  alt={t.name}
-                  width={48}
-                  height={48}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="text-left">
-                <div className="font-semibold text-white">{t.name}</div>
-                <div className="text-white/50 text-sm">{t.role}</div>
-              </div>
+            {/* Navigation arrows */}
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <button
+                onClick={prev}
+                className="w-10 h-10 rounded-full border border-[#e0e0e0] flex items-center justify-center hover:border-[#24a3b1] transition-colors"
+                aria-label="Previous testimonial"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-4 h-4 stroke-[#011f23] fill-none"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+              <button
+                onClick={next}
+                className="w-10 h-10 rounded-full border border-[#e0e0e0] flex items-center justify-center hover:border-[#24a3b1] transition-colors"
+                aria-label="Next testimonial"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-4 h-4 stroke-[#011f23] fill-none"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
             </div>
-          </div>
-
-          <div className="flex items-center justify-center gap-4 mt-10">
-            <button
-              onClick={prev}
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-white/40 transition-colors"
-              aria-label="Previous testimonial"
-            >
-              <svg viewBox="0 0 10 18" className="w-2.5 h-4 fill-white rotate-180">
-                <path d="M1 1l8 8-8 8" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-            <div className="flex gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActive(i)}
-                  className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                    i === active ? "bg-accent" : "bg-white/30"
-                  }`}
-                  aria-label={`Testimonial ${i + 1}`}
-                />
-              ))}
-            </div>
-            <button
-              onClick={next}
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-white/40 transition-colors"
-              aria-label="Next testimonial"
-            >
-              <svg viewBox="0 0 10 18" className="w-2.5 h-4 fill-white">
-                <path d="M1 1l8 8-8 8" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
           </div>
         </div>
       </div>

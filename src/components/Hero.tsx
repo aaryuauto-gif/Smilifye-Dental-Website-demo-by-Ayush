@@ -112,8 +112,14 @@ export default function Hero() {
         <h1 ref={titleRef} className="text-white max-w-[700px] mb-5">
           {titleWords.map((word, i) => (
             <span key={i} className="inline-block overflow-hidden align-top pb-1">
-              <span className="word-inner inline-block">{word}</span>
-              {i < titleWords.length - 1 && " "}
+              <span
+                className={`word-inner inline-block ${
+                  word === "Every" || word === "Generation" ? "text-accent" : ""
+                }`}
+              >
+                {word}
+              </span>
+              {i < titleWords.length - 1 && " "}
             </span>
           ))}
         </h1>
@@ -122,10 +128,25 @@ export default function Hero() {
           We combine modern technology with heartfelt service to ensure every generation.
         </p>
 
-        <div className="hero-btn">
-          <ArrowButton variant="light" href="#cta">
-            Book Appointment
+        <div className="hero-btn flex items-center gap-4">
+          <ArrowButton variant="dark" href="#cta">
+            Get Appointment
           </ArrowButton>
+          <a
+            href="#story"
+            className="w-[52px] h-[52px] rounded-full border border-white/20 flex items-center justify-center hover:border-white/40 transition-colors"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="w-4 h-4 stroke-accent fill-none"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </a>
         </div>
 
         <div className="hero-info grid grid-cols-3 border-t border-white/15 mt-15 max-lg:grid-cols-1">
