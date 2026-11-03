@@ -31,7 +31,7 @@ export default function CTA() {
   );
 
   return (
-    <section ref={sectionRef} id="cta" className="cta-inner bg-[#022f34] py-[120px] max-sm:py-16 text-center">
+    <section ref={sectionRef} id="cta" className="cta-inner bg-[#022f34] py-[120px] max-sm:py-16 text-center rounded-t-[24px]">
       <div className="container">
         <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/30 text-sm font-medium text-white mb-8">
           <span className="text-[10px] text-white/70">✳</span>

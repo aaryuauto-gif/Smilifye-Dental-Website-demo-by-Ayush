@@ -59,7 +59,7 @@ export default function Blog() {
   );
 
   return (
-    <section ref={sectionRef} id="blog" className="py-[120px] bg-[#fef5ec]">
+    <section ref={sectionRef} id="blog" className="py-[120px] bg-white">
       <div className="container">
         {/* Header area */}
         <div className="blog-header mb-14">
