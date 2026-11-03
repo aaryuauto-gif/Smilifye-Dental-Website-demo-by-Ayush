@@ -37,7 +37,7 @@ const infoCards = [
         <polyline points="12 6 12 12 16 14" />
       </>
     ),
-    title: "Working Hours",
+    title: "Get An Appointment",
     text: (
       <>
         Mon- Fri&emsp;8:00- 17:00
