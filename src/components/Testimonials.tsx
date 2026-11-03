@@ -117,55 +117,22 @@ export default function Testimonials() {
             </h4>
             <p className="text-[#587d81] text-sm mb-5">{t.role}</p>
 
-            {/* Stars */}
-            <div className="flex gap-1 justify-center mb-5">
-              {[...Array(5)].map((_, j) => (
-                <svg
-                  key={j}
-                  viewBox="0 0 24 24"
-                  className="w-5 h-5 fill-[#f5a623] stroke-none"
-                >
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                </svg>
-              ))}
-            </div>
-
-            <blockquote className="text-[#587d81] text-base leading-[170%] max-w-[500px] mx-auto">
+            <blockquote className="text-[#011f23] text-lg font-medium leading-[170%] max-w-[500px] mx-auto">
               &ldquo;{t.quote}&rdquo;
             </blockquote>
 
-            {/* Navigation arrows */}
-            <div className="flex items-center justify-center gap-4 mt-8">
-              <button
-                onClick={prev}
-                className="w-10 h-10 rounded-full border border-[#e0e0e0] flex items-center justify-center hover:border-[#24a3b1] transition-colors"
-                aria-label="Previous testimonial"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-4 h-4 stroke-[#011f23] fill-none"
-                  strokeWidth={2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="15 18 9 12 15 6" />
-                </svg>
-              </button>
-              <button
-                onClick={next}
-                className="w-10 h-10 rounded-full border border-[#e0e0e0] flex items-center justify-center hover:border-[#24a3b1] transition-colors"
-                aria-label="Next testimonial"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-4 h-4 stroke-[#011f23] fill-none"
-                  strokeWidth={2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="9 18 15 12 9 6" />
-                </svg>
-              </button>
+            {/* Dot indicators */}
+            <div className="flex items-center justify-center gap-2 mt-8">
+              {testimonials.map((_, j) => (
+                <button
+                  key={j}
+                  onClick={() => setActive(j)}
+                  className={`w-2.5 h-2.5 rounded-full transition-colors ${
+                    j === active ? "bg-[#24a3b1]" : "bg-[#d0d5d5]"
+                  }`}
+                  aria-label={`Testimonial ${j + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>

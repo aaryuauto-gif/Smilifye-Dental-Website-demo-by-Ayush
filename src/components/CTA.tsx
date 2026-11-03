@@ -33,23 +33,22 @@ export default function CTA() {
   return (
     <section ref={sectionRef} id="cta" className="py-[120px] bg-white">
       <div className="container">
-        <div className="cta-inner bg-primary-900 rounded-3xl px-12 py-16 text-center max-sm:px-6 max-sm:py-10">
-          <h2 className="text-white max-w-[600px] mx-auto mb-4">
-            Ready to Transform{" "}
-            <span className="bg-gradient-to-r from-primary-400 to-accent bg-clip-text text-transparent">
-              Your Smile?
-            </span>
+        <div className="cta-inner bg-gradient-to-br from-[#011f23] to-[#0a3a40] rounded-3xl px-12 py-20 text-center max-sm:px-6 max-sm:py-12">
+          <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/30 text-sm font-medium text-white mb-8">
+            <span className="text-[10px] text-white/70">✳</span>
+            Get In Touch
+          </span>
+          <h2 className="text-white max-w-[700px] mx-auto mb-4 italic">
+            Let&apos;s Talk Teeth—We&apos;re{" "}
+            <br />
+            <span style={{ color: "#7ecdd6" }}>Just a Smile Away</span>
           </h2>
-          <p className="text-white/60 max-w-[500px] mx-auto mb-8 leading-[155%]">
-            Book your appointment today and take the first step toward a healthier, more
-            confident smile. Our expert team is here to help.
+          <p className="text-white/60 max-w-[560px] mx-auto mb-10 leading-[155%]">
+            Your health journey starts with one simple step — we&apos;re here to guide you.
           </p>
-          <div className="flex items-center justify-center gap-4 max-sm:flex-col">
+          <div className="flex items-center justify-center">
             <ArrowButton variant="light" href="#">
-              Book Appointment
-            </ArrowButton>
-            <ArrowButton variant="ghost" href="#">
-              Contact Us
+              Get Started
             </ArrowButton>
           </div>
         </div>

@@ -26,6 +26,10 @@ const values = [
     title: "Our Honesty & Trust",
     text: "We believe in honest communication and transparent treatment plans, helping you make informed decisions with complete trust and confidence.",
   },
+  {
+    title: "Patient-Centered Care",
+    text: "Every treatment plan is tailored to the individual. We listen to your concerns, respect your preferences, and prioritize your overall well-being.",
+  },
 ];
 
 export default function Values() {

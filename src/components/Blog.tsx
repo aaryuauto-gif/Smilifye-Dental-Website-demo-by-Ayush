@@ -62,15 +62,15 @@ export default function Blog() {
     <section ref={sectionRef} id="blog" className="py-[120px] bg-[#fef5ec]">
       <div className="container">
         {/* Header area */}
-        <div className="blog-header text-center mb-14">
+        <div className="blog-header mb-14">
           <div className="mb-5">
             <Tag>Blogs</Tag>
           </div>
-          <div className="flex items-end justify-between max-md:flex-col max-md:items-center max-md:gap-6">
-            <h2 className="text-[#011f23] text-left max-md:text-center">
+          <div className="flex items-end justify-between max-md:flex-col max-md:items-start max-md:gap-6">
+            <h2 className="text-[#011f23]">
               Stories and Tips From
               <br />
-              Around the World
+              <span style={{ color: "#24a3b1" }}>Around the World</span>
             </h2>
             <ArrowButton variant="dark" href="#">
               See All Blogs
