@@ -85,28 +85,35 @@ export default function FAQ() {
             </p>
 
             {/* Still have a question? card */}
-            <div className="bg-white rounded-2xl p-6 max-w-[400px]">
-              {/* Phone icon */}
-              <div className="w-10 h-10 rounded-full bg-[#011f23] flex items-center justify-center mb-4">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-4 h-4 stroke-white fill-none"
-                  strokeWidth={2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
+            <div className="bg-white rounded-2xl p-6 max-w-[480px]">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-10 h-10 rounded-full bg-[#011f23] flex items-center justify-center shrink-0">
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="w-4 h-4 stroke-white fill-none"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </div>
               </div>
-              <h4 className="text-[#011f23] font-semibold text-lg mb-1">
-                Still have a question?
-              </h4>
-              <p className="text-[#587d81] text-sm mb-4">
-                Our team is ready to assist you with anything you need.
-              </p>
-              <ArrowButton variant="dark" href="#">
-                Make A Call
-              </ArrowButton>
+              <div className="flex items-end justify-between gap-4">
+                <div>
+                  <h4 className="text-[#011f23] font-semibold text-lg mb-1">
+                    Still have a question?
+                  </h4>
+                  <p className="text-[#587d81] text-sm">
+                    Our team is ready to assist you with anything you need.
+                  </p>
+                </div>
+                <div className="shrink-0">
+                  <ArrowButton variant="dark" href="#">
+                    Make A Call
+                  </ArrowButton>
+                </div>
+              </div>
             </div>
           </div>
 
