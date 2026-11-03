@@ -11,7 +11,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 const storyCards = [
   {
-    img: "/images/69dd9af4fdbd04af53ca9fa0_our-story-image-5.webp",
+    img: "/images/69dd949075e2270e49e3ae28_our-story-image-1.webp",
+    stat: "92%",
+    label: "Comfort &\nCare",
+    text: "Patients say they feel less anxious during visits with us",
+  },
+  {
+    img: "/images/69dd9af4b18f391ad352b55c_our-story-image-2.webp",
     stat: "3/4",
     label: "Trusted by\nCommunity",
     text: "New patients come from word-of-mouth referrals the care",
@@ -27,18 +33,6 @@ const storyCards = [
     stat: "24/7",
     label: "Emergency\nSupport",
     text: "Experiencing sudden pain, injury or issues? Our team is here for you 24/7.",
-  },
-  {
-    img: "/images/69dd9af4b18f391ad352b55c_our-story-image-2.webp",
-    stat: "85%",
-    label: "Healthy\nHabits",
-    text: "We’re proud to help our community stay ahead of dental issues with preventive care",
-  },
-  {
-    img: "/images/69dd949075e2270e49e3ae28_our-story-image-1.webp",
-    stat: "92%",
-    label: "Comfort &\nCare",
-    text: "Patients say they feel less anxious during visits with us",
   },
   {
     img: "/images/69dd9af4fdbd04af53ca9fa0_our-story-image-5.webp",
@@ -88,7 +82,7 @@ export default function Story() {
           <div className="mb-5">
             <Tag>Our Story</Tag>
           </div>
-          <h2 className="max-w-[820px] mx-auto" style={{ textWrap: "auto" }}>
+          <h2 className="mx-auto" style={{ textWrap: "auto" }}>
             Redefining Dental Care with Trust, Innovation in{" "}
             <span className="text-accent">
               Dental Wellness
