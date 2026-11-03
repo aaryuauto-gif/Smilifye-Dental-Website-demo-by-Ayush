@@ -17,7 +17,7 @@ const services = [
       "Early care and regular checkups are the key to avoiding serious dental issues. Our preventive treatments help you maintain strong, healthy teeth and gums",
     image: "/images/699c52f336cd1c03293a16d6_service-thumbnail-image.jpg",
     tags: ["Checkups", "Cleanings", "Oral Health", "Whitening"],
-    bg: "#f3f6ff",
+    bgTint: "#f3f6ff",
   },
   {
     num: "[02]",
@@ -26,7 +26,7 @@ const services = [
       "Cosmetic dentistry improves the appearance of your teeth through treatments like whitening, veneers, and bonding, helping you achieve a brighter, more confident smile.",
     image: "/images/69dde4c6be5aa13c0c8ac8bd_service-thumbnail-image-2.jpg",
     tags: ["Teeth Whitening", "Dental Veneers", "Smile Makeover", "Cosmetic Bonding"],
-    bg: "#fef5ec",
+    bgTint: "#fef5ec",
   },
   {
     num: "[03]",
@@ -35,7 +35,7 @@ const services = [
       "Restorative treatments repair damaged or missing teeth using fillings, crowns, bridges, and implants to restore function, strength, and natural appearance effectively.",
     image: "/images/69dde5bba2659ede481db0b6_service-thumbnail-image-3.jpg",
     tags: ["Dental Fillings", "Crowns & Bridges", "Tooth Repair", "Dental Implants"],
-    bg: "#effff7",
+    bgTint: "#effff7",
   },
   {
     num: "[04]",
@@ -44,31 +44,15 @@ const services = [
       "Orthodontic treatments correct misaligned teeth and bite issues using braces or aligners, improving both appearance and long-term oral health.",
     image: "/images/69dde7bcf2f03350abca0ee8_service-thumbnail-image-4.jpg",
     tags: ["Braces", "Clear Aligners", "Teeth Alignment", "Bite Correction"],
-    bg: "#f7efff",
+    bgTint: "#f7efff",
   },
 ];
 
 function CheckIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0">
-      <circle cx="8" cy="8" r="8" fill="#24a3b1" />
-      <path
-        d="M5 8l2 2 4-4"
-        stroke="#fff"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 text-white">
+      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM17.4571 9.45711L11 15.9142L6.79289 11.7071L8.20711 10.2929L11 13.0858L16.0429 8.04289L17.4571 9.45711Z" />
     </svg>
-  );
-}
-
-function ServiceTagPill({ label }: { label: string }) {
-  return (
-    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-[#011f23] text-xs font-medium whitespace-nowrap">
-      <CheckIcon />
-      {label}
-    </span>
   );
 }
 
@@ -80,73 +64,12 @@ function ViewDetailsButton() {
     >
       View Details
       <span className="w-6 h-6 rounded-full bg-[#24a3b1] flex items-center justify-center shrink-0">
-        <svg
-          viewBox="0 0 24 24"
-          className="w-3 h-3 stroke-white fill-none"
-          strokeWidth={2.5}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
+        <svg viewBox="0 0 24 24" className="w-3 h-3 stroke-white fill-none" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
           <line x1="7" y1="17" x2="17" y2="7" />
           <polyline points="7 7 17 7 17 17" />
         </svg>
       </span>
     </a>
-  );
-}
-
-function TextCard({
-  service,
-  className = "",
-  bgColor,
-}: {
-  service: (typeof services)[0];
-  className?: string;
-  bgColor?: string;
-}) {
-  return (
-    <div
-      className={`flex flex-col justify-between rounded-2xl p-8 min-h-[480px] ${className}`}
-      style={{ backgroundColor: bgColor || "#f2f7f7" }}
-    >
-      <span className="text-[56px] leading-none font-light text-[#c5cfd0] tracking-[-2px]">
-        {service.num}
-      </span>
-      <div>
-        <h3 className="text-[24px] leading-[120%] font-semibold text-[#011f23] mb-3">
-          {service.title}
-        </h3>
-        <p className="text-[#587d81] text-[15px] leading-[165%] mb-6">
-          {service.description}
-        </p>
-        <ViewDetailsButton />
-      </div>
-    </div>
-  );
-}
-
-function ImageCard({
-  service,
-  className = "",
-}: {
-  service: (typeof services)[0];
-  className?: string;
-}) {
-  return (
-    <div className={`relative rounded-2xl overflow-hidden min-h-[480px] ${className}`}>
-      <Image
-        src={service.image}
-        alt={service.title}
-        fill
-        className="object-cover"
-        sizes="(max-width:768px)100vw,35vw"
-      />
-      <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
-        {service.tags.map((tag, ti) => (
-          <ServiceTagPill key={ti} label={tag} />
-        ))}
-      </div>
-    </div>
   );
 }
 
@@ -165,11 +88,7 @@ export default function Services() {
           y: 0,
           opacity: 1,
           duration: 0.8,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 85%",
-            toggleActions: "play none none none",
-          },
+          scrollTrigger: { trigger: sectionRef.current, start: "top 85%" },
         }
       );
 
@@ -204,10 +123,10 @@ export default function Services() {
       id="services"
       className="pt-[100px] pb-[60px] bg-white overflow-hidden"
     >
-      <div className="max-w-[1160px] mx-auto px-5 services-header mb-12">
+      <div className="container services-header mb-12">
         <div className="flex items-end justify-between max-md:flex-col max-md:items-start max-md:gap-6">
           <div>
-            <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-[#d0d5d5] text-sm font-medium text-[#011f23] mb-5">
+            <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-[#d0d5d5] text-sm font-medium text-[#011f23] mb-4">
               <span className="text-[10px] text-[#24a3b1]">✳</span>
               Our Services
             </span>
@@ -216,6 +135,9 @@ export default function Services() {
               <br />
               Care for <span className="text-[#24a3b1]">Every Smile</span>
             </h2>
+            <p className="mt-4 text-[#587d81] text-base leading-[160%] max-w-[560px]">
+              At Smilifye, we combine expertise, compassion, and modern technology to create a dental experience that patients truly value.
+            </p>
           </div>
           <ArrowButton variant="dark" href="#">
             See All Services
@@ -225,27 +147,54 @@ export default function Services() {
 
       <div
         ref={trackRef}
-        className="flex gap-5 pl-[max(20px,calc((100vw-1160px)/2+20px))]"
+        className="flex gap-5 pl-[max(16px,calc((100vw-1160px)/2))]"
         style={{ width: "max-content" }}
       >
         {services.map((service, i) => (
           <div
             key={i}
-            className="service-slide flex shrink-0 gap-5"
-            style={{ width: "calc(100vw - 40px)", maxWidth: "1120px" }}
+            className="service-slide flex shrink-0 gap-5 rounded-2xl overflow-hidden"
+            style={{ width: "calc(100vw - 32px)", maxWidth: "1160px" }}
           >
-            <div className="w-[30%] shrink-0 max-md:hidden">
-              <TextCard service={service} bgColor={service.bg} />
+            {/* Left: content card */}
+            <div
+              className="flex flex-col justify-between w-[45%] min-h-[500px] rounded-2xl p-8 shrink-0 max-md:w-full max-md:min-h-[400px]"
+              style={{ backgroundColor: service.bgTint }}
+            >
+              <span className="text-[60px] leading-none font-light text-[#c5cfd0] tracking-[-2px]">
+                {service.num}
+              </span>
+              <div>
+                <h3 className="text-[24px] leading-[120%] font-semibold text-[#011f23] mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-[#587d81] text-[15px] leading-[165%] mb-6">
+                  {service.description}
+                </p>
+                <ViewDetailsButton />
+              </div>
             </div>
-            <div className="w-[40%] shrink-0 max-md:w-full">
-              <ImageCard service={service} />
-            </div>
-            <div className="w-[30%] shrink-0 max-md:hidden">
-              <TextCard
-                service={services[(i + 1) % services.length]}
-                bgColor={services[(i + 1) % services.length].bg}
-                className="opacity-60"
+
+            {/* Right: image with tag pills */}
+            <div className="relative w-[55%] min-h-[500px] rounded-2xl overflow-hidden shrink-0 max-md:hidden">
+              <Image
+                src={service.image}
+                alt={service.title}
+                fill
+                className="object-cover"
+                sizes="55vw"
               />
+              <div className="absolute bottom-5 left-5 right-5 flex flex-wrap gap-2">
+                {service.tags.map((tag, ti) => (
+                  <span
+                    key={ti}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#011f23] text-white text-xs font-medium"
+                  >
+                    <CheckIcon />
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         ))}
