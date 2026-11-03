@@ -41,10 +41,10 @@ export default function Values() {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
       gsap.fromTo(
-        ".values-left",
-        { x: -50, opacity: 0 },
+        ".values-header",
+        { y: 40, opacity: 0 },
         {
-          x: 0,
+          y: 0,
           opacity: 1,
           duration: 0.8,
           scrollTrigger: { trigger: sectionRef.current, start: "top 80%", toggleActions: "play none none none" },
@@ -52,13 +52,25 @@ export default function Values() {
       );
 
       gsap.fromTo(
-        ".values-right",
-        { x: 50, opacity: 0 },
+        ".values-left",
+        { y: 50, opacity: 0 },
         {
-          x: 0,
+          y: 0,
           opacity: 1,
           duration: 0.8,
-          scrollTrigger: { trigger: sectionRef.current, start: "top 80%", toggleActions: "play none none none" },
+          scrollTrigger: { trigger: ".values-left", start: "top 90%", toggleActions: "play none none none" },
+        }
+      );
+
+      gsap.fromTo(
+        ".values-right",
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.15,
+          scrollTrigger: { trigger: ".values-right", start: "top 90%", toggleActions: "play none none none" },
         }
       );
     },
@@ -68,20 +80,23 @@ export default function Values() {
   return (
     <section ref={sectionRef} className="py-[120px] bg-white">
       <div className="container">
-        <div className="grid grid-cols-2 gap-12 items-start max-lg:grid-cols-1">
-          {/* LEFT: Heading + Accordion */}
-          <div className="values-left">
-            <div className="mb-5">
-              <Tag>Why Choose Us</Tag>
-            </div>
-            <h2 className="mb-4">
-              We Treat You Like Family — Because Your{" "}
-              <span style={{ color: "#24a3b1" }}>Smile Matters Most</span>
-            </h2>
-            <p className="text-[#587d81] text-base leading-[160%] mb-10 max-w-[540px]">
-              At Smilifye, we combine expertise, compassion, and modern technology to create a dental experience that patients truly value.
-            </p>
+        {/* Full-width heading area */}
+        <div className="values-header mb-12">
+          <div className="mb-5">
+            <Tag>Why Choose Us</Tag>
+          </div>
+          <h2 className="mb-4">
+            We Treat You Like Family — Because Your{" "}
+            <span style={{ color: "#24a3b1" }}>Smile Matters Most</span>
+          </h2>
+          <p className="text-[#587d81] text-base leading-[160%] max-w-[620px]">
+            At Smilifye, we combine expertise, compassion, and modern technology to create a dental experience that patients truly value.
+          </p>
+        </div>
 
+        {/* Accordion + Image side by side */}
+        <div className="grid grid-cols-[1fr_1fr] gap-12 items-start max-lg:grid-cols-1">
+          <div className="values-left">
             <div className="flex flex-col">
               {values.map((item, i) => (
                 <div key={i}>
@@ -89,7 +104,7 @@ export default function Values() {
                     className="w-full flex items-start gap-3 py-5 text-left"
                     onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
                   >
-                    <span className="text-[#24a3b1] text-lg mt-0.5 shrink-0">✦</span>
+                    <span className="text-[#24a3b1] text-lg mt-0.5 shrink-0">✳</span>
                     <div className="flex-1">
                       <span className="font-semibold text-[#011f23] text-lg tracking-[-0.5px]">{item.title}</span>
                       <div
@@ -109,7 +124,6 @@ export default function Values() {
             </div>
           </div>
 
-          {/* RIGHT: Image */}
           <div className="values-right">
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
               <Image

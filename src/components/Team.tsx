@@ -62,7 +62,7 @@ export default function Team() {
   );
 
   return (
-    <section ref={sectionRef} className="py-[120px]" style={{ backgroundColor: "#e8f4f3" }}>
+    <section ref={sectionRef} className="py-[120px]" style={{ backgroundColor: "#ddebec" }}>
       <div className="container">
         <div className="team-header flex flex-col items-center text-center mb-12">
           <div className="mb-5">
