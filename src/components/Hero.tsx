@@ -37,7 +37,7 @@ const infoCards = [
         <polyline points="12 6 12 12 16 14" />
       </>
     ),
-    title: "Working Hours",
+    title: "Get An Appointment",
     text: (
       <>
         Mon- Fri&emsp;8:00- 17:00
@@ -104,7 +104,7 @@ export default function Hero() {
 
       <div className="relative z-[2] max-w-[1160px] mx-auto w-full px-5 pb-20 max-lg:pb-12">
         <h1 className="hero-title text-white max-w-[700px] mb-5">
-          Trusted Dental Care for <span className="text-accent">Every Generation</span>
+          Trusted Dental Care for Every Generation
         </h1>
 
         <p className="hero-para text-white/70 text-lg max-w-[580px] mb-8 leading-[155%]">
