@@ -11,6 +11,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const storyCards = [
   {
+    img: "/images/69dd9af4fdbd04af53ca9fa0_our-story-image-5.webp",
+    stat: "3/4",
+    label: "Trusted by\nCommunity",
+    text: "New patients come from word-of-mouth referrals the care",
+  },
+  {
     img: "/images/69dd9af41ae0af5299d4972f_our-story-image-3.webp",
     stat: "7 Mi",
     label: "Quick &\nAccessible",
@@ -82,7 +88,7 @@ export default function Story() {
           <div className="mb-5">
             <Tag>Our Story</Tag>
           </div>
-          <h2 className="max-w-[700px] mx-auto">
+          <h2 className="max-w-[820px] mx-auto" style={{ textWrap: "auto" }}>
             Redefining Dental Care with Trust, Innovation in{" "}
             <span className="text-accent">
               Dental Wellness
