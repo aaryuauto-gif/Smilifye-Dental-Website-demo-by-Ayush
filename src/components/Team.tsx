@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const team = [
   {
-    img: "/images/69de74662ec267211bb070d6_team-image-6.jpg",
+    img: "/images/69de730f3764273782bd4d9d_team-image-4.jpg",
     name: "Dr. Oliver Thompson",
     role: "Pediatric Dentist",
   },
@@ -22,7 +22,7 @@ const team = [
     role: "Pediatric Dentist",
   },
   {
-    img: "/images/69de730f3764273782bd4d9d_team-image-4.jpg",
+    img: "/images/69de74662ec267211bb070d6_team-image-6.jpg",
     name: "Dr. Emman Collins",
     role: "Pediatric Dentist",
   },

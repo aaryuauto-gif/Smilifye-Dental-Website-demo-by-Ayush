@@ -88,29 +88,19 @@ export default function Services() {
           y: 0,
           opacity: 1,
           duration: 0.8,
-          scrollTrigger: { trigger: sectionRef.current, start: "top 85%" },
+          scrollTrigger: { trigger: sectionRef.current, start: "top 85%", toggleActions: "play none none none" },
         }
       );
 
-      const track = trackRef.current;
-      if (!track) return;
-      const totalScroll = track.scrollWidth - track.clientWidth;
-      if (totalScroll <= 0) return;
-
       gsap.fromTo(
-        track,
-        { x: 0 },
+        ".service-slide",
+        { y: 40, opacity: 0 },
         {
-          x: -totalScroll,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 10%",
-            end: () => `+=${totalScroll}`,
-            pin: true,
-            scrub: 1,
-            invalidateOnRefresh: true,
-          },
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          stagger: 0.15,
+          scrollTrigger: { trigger: trackRef.current, start: "top 90%", toggleActions: "play none none none" },
         }
       );
     },
@@ -147,14 +137,13 @@ export default function Services() {
 
       <div
         ref={trackRef}
-        className="flex gap-5 pl-[max(16px,calc((100vw-1160px)/2))]"
-        style={{ width: "max-content" }}
+        className="flex gap-5 pl-[max(16px,calc((100vw-1160px)/2))] pr-5 overflow-x-auto pb-5 snap-x snap-mandatory scrollbar-thin"
       >
         {services.map((service, i) => (
           <div
             key={i}
-            className="service-slide flex shrink-0 gap-5 rounded-2xl overflow-hidden"
-            style={{ width: "calc(100vw - 32px)", maxWidth: "1160px" }}
+            className="service-slide flex shrink-0 gap-5 rounded-2xl overflow-hidden snap-start"
+            style={{ width: "calc(100vw - 32px)", maxWidth: "1120px" }}
           >
             {/* Left: content card */}
             <div
