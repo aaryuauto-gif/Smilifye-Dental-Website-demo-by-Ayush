@@ -23,10 +23,10 @@ function ArrowIcon() {
 }
 
 const variants: Record<string, string> = {
-  dark: "bg-primary-900 text-white hover:bg-primary-700",
-  light: "bg-white text-primary-900 hover:bg-neutral-100",
-  accent: "bg-accent text-white hover:bg-accent-dark",
-  outline: "border border-border text-fg bg-surface hover:border-accent",
+  dark: "bg-[#011f23] text-white hover:bg-[#022f34]",
+  light: "bg-white text-[#011f23] hover:bg-neutral-100",
+  accent: "bg-[#24a3b1] text-white hover:bg-[#1c91a1]",
+  outline: "border border-[#d0d5d5] text-[#011f23] bg-white hover:border-[#24a3b1]",
   ghost: "border border-white/20 text-white hover:border-white/40",
 };
 
