@@ -115,21 +115,6 @@ export default function Hero() {
           <ArrowButton variant="light" href="#cta">
             Book Appointment
           </ArrowButton>
-          <a
-            href="#story"
-            className="w-[52px] h-[52px] rounded-full border border-white/20 flex items-center justify-center hover:border-white/40 transition-colors"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              className="w-4 h-4 stroke-accent fill-none"
-              strokeWidth={2}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="7" y1="17" x2="17" y2="7" />
-              <polyline points="7 7 17 7 17 17" />
-            </svg>
-          </a>
         </div>
 
         <div className="hero-info grid grid-cols-3 border-t border-white/15 mt-15 max-lg:grid-cols-1">

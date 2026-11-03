@@ -82,7 +82,7 @@ export default function Story() {
           <div className="mb-5">
             <Tag>Our Story</Tag>
           </div>
-          <h2 className="mx-auto" style={{ textWrap: "auto" }}>
+          <h2 className="mx-auto">
             Redefining Dental Care with Trust, Innovation in{" "}
             <span className="text-accent">
               Dental Wellness
