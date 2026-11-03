@@ -103,8 +103,9 @@ export default function Hero() {
       />
 
       <div className="relative z-[2] max-w-[1160px] mx-auto w-full px-5 pb-20 max-lg:pb-12">
-        <h1 className="hero-title text-white max-w-[700px] mb-5">
-          Trusted Dental Care for Every Generation
+        <h1 className="hero-title max-w-[700px] mb-5" style={{ color: "#ffffff" }}>
+          Trusted Dental Care for{" "}
+          <span style={{ color: "#24a3b1" }}>Every Generation</span>
         </h1>
 
         <p className="hero-para text-white/70 text-lg max-w-[580px] mb-8 leading-[155%]">
