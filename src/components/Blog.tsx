@@ -39,7 +39,7 @@ export default function Blog() {
           y: 0,
           opacity: 1,
           duration: 0.8,
-          scrollTrigger: { trigger: sectionRef.current, start: "top 85%" },
+          scrollTrigger: { trigger: sectionRef.current, start: "top 85%", toggleActions: "play none none none" },
         }
       );
 
@@ -51,7 +51,7 @@ export default function Blog() {
           opacity: 1,
           duration: 0.7,
           stagger: 0.15,
-          scrollTrigger: { trigger: ".blog-grid", start: "top 90%" },
+          scrollTrigger: { trigger: ".blog-grid", start: "top 90%", toggleActions: "play none none none" },
         }
       );
     },

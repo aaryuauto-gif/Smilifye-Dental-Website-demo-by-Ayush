@@ -57,7 +57,7 @@ export default function Header() {
       >
         <a href="#" className="flex items-center gap-2.5">
           <Image
-            src="/images/699c12dafab10922f849f4d6_smilifye-logo-dark.svg"
+            src="/images/smilifye-logo-light.svg"
             alt="Smilifye"
             width={120}
             height={28}

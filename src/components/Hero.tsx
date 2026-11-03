@@ -37,7 +37,7 @@ const infoCards = [
         <polyline points="12 6 12 12 16 14" />
       </>
     ),
-    title: "Get An Appointment",
+    title: "Working Hours",
     text: (
       <>
         Mon- Fri&emsp;8:00- 17:00
@@ -56,14 +56,11 @@ export default function Hero() {
     () => {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-      const words = titleRef.current?.querySelectorAll(".word-inner");
-      if (words?.length) {
-        gsap.fromTo(
-          words,
-          { y: 80, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.9, ease: "power3.out", stagger: 0.08, delay: 0.3 }
-        );
-      }
+      gsap.fromTo(
+        ".hero-title",
+        { y: 60, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.9, ease: "power3.out", delay: 0.3 }
+      );
 
       gsap.fromTo(".hero-para", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: 1 });
       gsap.fromTo(".hero-btn", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, delay: 1.3 });
@@ -82,8 +79,6 @@ export default function Hero() {
     },
     { scope: sectionRef }
   );
-
-  const titleWords = "Trusted Dental Care for Every Generation".split(" ");
 
   return (
     <section
@@ -109,18 +104,8 @@ export default function Hero() {
       />
 
       <div className="relative z-[2] max-w-[1160px] mx-auto w-full px-5 pb-20 max-lg:pb-12">
-        <h1 ref={titleRef} className="text-white max-w-[700px] mb-5">
-          {titleWords.map((word, i) => (
-            <span key={i} className="inline-block overflow-hidden align-top pb-1 mr-[0.3em]">
-              <span
-                className={`word-inner inline-block ${
-                  word === "Every" || word === "Generation" ? "text-accent" : ""
-                }`}
-              >
-                {word}
-              </span>
-            </span>
-          ))}
+        <h1 className="hero-title text-white max-w-[700px] mb-5">
+          Trusted Dental Care for <span className="text-accent">Every Generation</span>
         </h1>
 
         <p className="hero-para text-white/70 text-lg max-w-[580px] mb-8 leading-[155%]">
@@ -128,8 +113,8 @@ export default function Hero() {
         </p>
 
         <div className="hero-btn flex items-center gap-4">
-          <ArrowButton variant="dark" href="#cta">
-            Get Appointment
+          <ArrowButton variant="light" href="#cta">
+            Book Appointment
           </ArrowButton>
           <a
             href="#story"

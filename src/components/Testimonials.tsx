@@ -61,7 +61,7 @@ export default function Testimonials() {
           y: 0,
           opacity: 1,
           duration: 0.9,
-          scrollTrigger: { trigger: sectionRef.current, start: "top 80%" },
+          scrollTrigger: { trigger: sectionRef.current, start: "top 80%", toggleActions: "play none none none" },
         }
       );
     },

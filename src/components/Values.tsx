@@ -43,7 +43,7 @@ export default function Values() {
           x: 0,
           opacity: 1,
           duration: 0.8,
-          scrollTrigger: { trigger: sectionRef.current, start: "top 80%" },
+          scrollTrigger: { trigger: sectionRef.current, start: "top 80%", toggleActions: "play none none none" },
         }
       );
 
@@ -54,7 +54,7 @@ export default function Values() {
           x: 0,
           opacity: 1,
           duration: 0.8,
-          scrollTrigger: { trigger: sectionRef.current, start: "top 80%" },
+          scrollTrigger: { trigger: sectionRef.current, start: "top 80%", toggleActions: "play none none none" },
         }
       );
     },

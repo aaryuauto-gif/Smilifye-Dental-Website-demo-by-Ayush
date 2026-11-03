@@ -32,7 +32,7 @@ const storyCards = [
     img: "/images/69dd9af40f20dd2f826a7f52_our-story-image-4.webp",
     stat: "24/7",
     label: "Emergency\nSupport",
-    text: "",
+    text: "Experiencing sudden pain, injury or issues? Our team is here for you 24/7.",
   },
   {
     img: "/images/69dd9af4fdbd04af53ca9fa0_our-story-image-5.webp",
@@ -56,7 +56,7 @@ export default function Story() {
           y: 0,
           opacity: 1,
           duration: 0.8,
-          scrollTrigger: { trigger: sectionRef.current, start: "top 85%" },
+          scrollTrigger: { trigger: sectionRef.current, start: "top 85%", toggleActions: "play none none none" },
         }
       );
 
@@ -68,7 +68,7 @@ export default function Story() {
           opacity: 1,
           duration: 0.8,
           stagger: 0.12,
-          scrollTrigger: { trigger: ".story-scroll", start: "top 90%" },
+          scrollTrigger: { trigger: ".story-scroll", start: "top 90%", toggleActions: "play none none none" },
         }
       );
     },

@@ -42,7 +42,7 @@ export default function Team() {
           y: 0,
           opacity: 1,
           duration: 0.8,
-          scrollTrigger: { trigger: sectionRef.current, start: "top 85%" },
+          scrollTrigger: { trigger: sectionRef.current, start: "top 85%", toggleActions: "play none none none" },
         }
       );
 
@@ -54,7 +54,7 @@ export default function Team() {
           opacity: 1,
           duration: 0.8,
           stagger: 0.15,
-          scrollTrigger: { trigger: ".team-grid", start: "top 90%" },
+          scrollTrigger: { trigger: ".team-grid", start: "top 90%", toggleActions: "play none none none" },
         }
       );
     },

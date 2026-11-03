@@ -74,7 +74,7 @@ export default function Footer() {
           opacity: 1,
           duration: 0.7,
           stagger: 0.1,
-          scrollTrigger: { trigger: footerRef.current, start: "top 90%" },
+          scrollTrigger: { trigger: footerRef.current, start: "top 90%", toggleActions: "play none none none" },
         }
       );
     },

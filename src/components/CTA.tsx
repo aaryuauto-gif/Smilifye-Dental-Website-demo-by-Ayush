@@ -23,7 +23,7 @@ export default function CTA() {
           opacity: 1,
           duration: 0.8,
           stagger: 0.12,
-          scrollTrigger: { trigger: sectionRef.current, start: "top 85%" },
+          scrollTrigger: { trigger: sectionRef.current, start: "top 85%", toggleActions: "play none none none" },
         }
       );
     },
