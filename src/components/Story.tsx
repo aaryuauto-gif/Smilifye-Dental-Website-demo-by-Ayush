@@ -11,6 +11,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const storyCards = [
   {
+    img: "/images/69dd949075e2270e49e3ae28_our-story-image-1.webp",
+    stat: "92%",
+    label: "Comfort &\nCare",
+    text: "Patients say they feel less anxious during visits with us",
+  },
+  {
     img: "/images/69dd9af4b18f391ad352b55c_our-story-image-2.webp",
     stat: "3/4",
     label: "Trusted by\nCommunity",
@@ -27,18 +33,6 @@ const storyCards = [
     stat: "24/7",
     label: "Emergency\nSupport",
     text: "Experiencing sudden pain, injury or issues? Our team is here for you 24/7.",
-  },
-  {
-    img: "/images/69dd949075e2270e49e3ae28_our-story-image-1.webp",
-    stat: "85%",
-    label: "Healthy\nHabits",
-    text: "We’re proud to help our community stay ahead of dental issues with preventive care",
-  },
-  {
-    img: "/images/69dd949075e2270e49e3ae28_our-story-image-1.webp",
-    stat: "92%",
-    label: "Comfort &\nCare",
-    text: "Patients say they feel less anxious during visits with us",
   },
   {
     img: "/images/69dd9af4fdbd04af53ca9fa0_our-story-image-5.webp",
@@ -100,29 +94,31 @@ export default function Story() {
           {storyCards.map((card, i) => (
             <div
               key={i}
-              className="story-card flex-[0_0_340px] min-w-0 relative rounded-[20px] overflow-hidden aspect-[3/4] snap-start transition-transform duration-500 hover:scale-[1.02]"
+              className="story-card flex-[0_0_400px] min-w-0 relative rounded-[20px] overflow-hidden aspect-[3/4] snap-start transition-transform duration-500 hover:scale-[1.02]"
             >
               <Image
                 src={card.img}
                 alt={card.label || `Story ${i + 1}`}
                 fill
                 className="object-cover"
-                sizes="340px"
+                sizes="400px"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/5 to-black/75 flex flex-col justify-end p-7">
                 {card.stat && (
                   <>
-                    <div className="flex items-baseline gap-2 mb-1">
-                      <span className="text-[40px] font-bold text-white tracking-[-1.5px]">{card.stat}</span>
-                      <span className="text-sm font-medium text-white/80 whitespace-pre-line">{card.label}</span>
-                    </div>
-                    <div className="flex gap-1 mb-3">
-                      {[...Array(5)].map((_, j) => (
-                        <span key={j} className="w-4 h-[3px] rounded-sm bg-accent" />
-                      ))}
+                    <div className="flex items-baseline gap-3 mb-1">
+                      <span className="text-[44px] font-bold text-white tracking-[-1.5px]">{card.stat}</span>
+                      <div className="flex flex-col gap-1.5">
+                        <span className="text-sm font-medium text-white/80 whitespace-pre-line leading-tight">{card.label}</span>
+                        <div className="flex gap-1">
+                          {[...Array(5)].map((_, j) => (
+                            <span key={j} className="w-4 h-[3px] rounded-sm bg-accent" />
+                          ))}
+                        </div>
+                      </div>
                     </div>
                     {card.text && (
-                      <div className="text-white/85 text-sm leading-[155%]">{card.text}</div>
+                      <div className="text-white/85 text-sm leading-[155%] mt-3">{card.text}</div>
                     )}
                   </>
                 )}
